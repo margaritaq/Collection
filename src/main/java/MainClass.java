@@ -18,6 +18,7 @@ public class MainClass {
         System.out.println(a.toString());
         System.out.println("Method reversList: " + a.reverseList());
         System.out.println("Method mixedList: " + a.mixedList());
+        System.out.println("Method toString: " + a.toString());
         System.out.println("Method clearList: " + a.clearList());
         System.out.println("Method isEmpty: " + a.isEmpty());
 

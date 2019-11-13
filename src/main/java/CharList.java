@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class CharList {
+
     ArrayList<Character> container;
 
     private CharList(ArrayList<Character> list) {
@@ -19,10 +20,12 @@ public class CharList {
         }
     }
 
-    @Override
     public String toString() {
-        String a = container.toString();
-        return a;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Character b : container) {
+            stringBuilder.append(b);
+        }
+        return stringBuilder.toString();
     }
 
     public int length() {
@@ -31,32 +34,29 @@ public class CharList {
 
     public char charAt(int index) {
         return container.get(index);
-
     }
 
-    public int indexOf(char c) {
-        return container.indexOf(c);
 
+    public int indexOf(char character) {
+        return container.indexOf(character);
     }
 
     CharList subString(int start, int end) {
         return new CharList(new ArrayList<Character>(container.subList(start, end)));
-
     }
 
     CharList removeDuplicates() {
-        HashSet<Character> a = new HashSet<Character>();
-        a.addAll(container);
-        return new CharList(new ArrayList(a));
+        HashSet<Character> listOfCharacters = new HashSet<Character>(container);
+        return new CharList(new ArrayList(listOfCharacters));
     }
 
-    CharList removeFirst(Character c) {
-        container.remove(c);
+    CharList removeFirst(Character character) {
+        container.remove(character);
         return new CharList(new ArrayList<Character>(container));
     }
 
-    CharList removeAll(Character c) {
-        container.removeAll(Collections.singleton(c));
+    CharList removeAll(Character character) {
+        container.removeAll(Collections.singleton(character));
         return new CharList(container);
     }
 
@@ -64,8 +64,8 @@ public class CharList {
         return container.isEmpty();
     }
 
-    boolean contains(Character c) {
-        return container.contains(c);
+    boolean contains(Character character) {
+        return container.contains(character);
     }
 
     CharList clearList() {
@@ -84,8 +84,9 @@ public class CharList {
     }
 
     CharList mixedList() {
-        Collections.shuffle(container);
-        return new CharList(container);
+        ArrayList<Character> mix = new ArrayList<Character>(container);
+        Collections.shuffle(mix);
+        return new CharList(mix);
     }
 
 
